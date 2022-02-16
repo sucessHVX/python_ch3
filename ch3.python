@@ -1,0 +1,97 @@
+my_english_dict = {}
+
+def add_to_dict(my_english_dict, key="", value="") :
+  if isinstance(my_english_dict, dict)==False:
+    print("You need to send a dictionary. You sent:", type(my_english_dict))
+  elif value=="":
+    print("You need to send a word and a definition.")
+  elif key in my_english_dict:
+    print(key, "is already on the dictionary. Won't add.")
+  else:
+    print(key, "has been added.")
+    my_english_dict[key]=value
+    return my_english_dict
+  
+def get_from_dict(my_english_dict, key="") :
+  if isinstance(my_english_dict, dict)==False:
+    print("You need to send a dictionary. You sent:", type(my_english_dict))
+  elif key=="":
+    print("You need to send a word to search for.")
+  elif key in my_english_dict:
+    print(key, ":", my_english_dict.get(key))
+  else:
+    print(key, "was not found in this dict")
+    
+def update_word(my_english_dict, key="", value="") :
+  if isinstance(my_english_dict, dict)==False:
+    print("You need to send a dictionary. You sent:", type(my_english_dict))
+  elif value=="":
+    print("You need to send a word and a definition to update.")
+  elif key in my_english_dict:
+    print(key, "has been updated to:", value)
+    my_english_dict[key]=value
+    return my_english_dict
+  else:
+    print(key, "is not on the dict. Can't update non-existing word.")
+
+def delete_from_dict(my_english_dict, key="") :
+  if isinstance(my_english_dict, dict)==False:
+    print("You need to send a dictionary. You sent:", type(my_english_dict))
+  elif key=="":
+    print("You need to specify a word to delete.")
+  elif key in my_english_dict:
+    print(key, "has been deleted")
+    del my_english_dict[key]
+    return my_english_dict
+  else:
+    print(key, "is not in this dict. Won't delete.")
+  
+
+
+print("###### add_to_dict ######\n")
+print('add_to_dict("hello", "kimchi"):')
+add_to_dict("hello", "kimchi")
+
+print('\nadd_to_dict(my_english_dict, "kimchi"):')
+add_to_dict(my_english_dict, "kimchi")
+
+print('\nadd_to_dict(my_english_dict, "kimchi", "The source of life."):')
+my_english_dict = add_to_dict(my_english_dict, "kimchi", "The source of life.")
+
+print('\nadd_to_dict(my_english_dict, "kimchi", "My fav. food"):')
+add_to_dict(my_english_dict, "kimchi", "My fav. food")
+
+print("\n\n###### get_from_dict ######\n")
+print('get_from_dict("hello", "kimchi"):')
+get_from_dict("hello", "kimchi")
+
+print('\nget_from_dict(my_english_dict):')
+get_from_dict(my_english_dict)
+
+print('\nget_from_dict(my_english_dict, "galbi"):')
+get_from_dict(my_english_dict, "galbi")
+
+print('\nget_from_dict(my_english_dict, "kimchi"):')
+get_from_dict(my_english_dict, "kimchi")
+
+print("\n\n###### update_word ######\n")
+print('update_word("hello", "kimchi"):')
+update_word("hello", "kimchi")
+
+print('\nupdate_word(my_english_dict, "kimchi"):')
+update_word(my_english_dict, "kimchi")
+
+print('\nupdate_word(my_english_dict, "galbi", "Love it."):')
+update_word(my_english_dict, "galbi", "Love it.")
+
+print('\nupdate_word(my_english_dict, "kimchi", "Food from the gods."):')
+my_english_dict = update_word(my_english_dict, "kimchi", "Food from the gods.")
+
+print('\nget_from_dict(my_english_dict, "kimchi"):')
+get_from_dict(my_english_dict, "kimchi")
+
+print("\n\n###### delete_from_dict ######\n")
+print('delete_from_dict("hello", "kimchi"):')
+delete_from_dict("hello", "kimchi")
+
+print('\ndelete_from_dict(my_english_dict):')
